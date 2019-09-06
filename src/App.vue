@@ -1,43 +1,17 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" class="container">
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import AlbumPresenterImpl from "./presenters/AlbumPresenterImpl";
+  import router from '@/routes/index'
 
-export default {
-  name: 'app',
-  data(){
-    return{
-      presenter:AlbumPresenterImpl(this)
+  export default {
+    name: 'app',
+    router,
+    mounted() {
+      this.M.AutoInit()
     }
-  },
-  components: {
-    HelloWorld, HelloWorld, HelloWorld
-  },
-  methods: {
-    mostarAlbumes(params) {
-      // eslint-disable-next-line no-console
-      console.log(params)
-    }
-  },
-  mounted(){
-    this.presenter.getAlbumsPorFiltro("Queen");
   }
-}
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
