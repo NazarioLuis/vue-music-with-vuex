@@ -7,11 +7,26 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import AlbumPresenterImpl from "./presenters/AlbumPresenterImpl";
 
 export default {
   name: 'app',
+  data(){
+    return{
+      presenter:AlbumPresenterImpl(this)
+    }
+  },
   components: {
-    HelloWorld
+    HelloWorld, HelloWorld, HelloWorld
+  },
+  methods: {
+    mostarAlbumes(params) {
+      // eslint-disable-next-line no-console
+      console.log(params)
+    }
+  },
+  mounted(){
+    this.presenter.getAlbumsPorFiltro("Queen");
   }
 }
 </script>
