@@ -8,7 +8,6 @@
 import Header from '@/components/headers/Header.vue'
 import Reproductor from '@/components/cards/Reproductor.vue'
 import { mapState, mapActions } from 'vuex';
-
 export default {
   name: 'Cancion',
   props: ['id'],
